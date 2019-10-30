@@ -1,6 +1,17 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Globalization;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace GordonWare
 {
@@ -12,11 +23,18 @@ namespace GordonWare
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        public const int screenWidth = 1280;
+        public const int screenHeight = 720;
+        public List<MiniGame> miniGames;
+
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = screenWidth;
+            graphics.PreferredBackBufferHeight = screenHeight;
         }
+
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -39,6 +57,10 @@ namespace GordonWare
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            miniGames = new List<MiniGame>() {
+                new KeyboardGame(Content),
+                // insérer votre jeu ici
+            };
 
             // TODO: use this.Content to load your game content here
         }
