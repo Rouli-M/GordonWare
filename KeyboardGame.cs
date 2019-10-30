@@ -7,7 +7,11 @@ namespace GordonWare
     class KeyboardGame : MiniGame
     {
         public KeyboardGame(Microsoft.Xna.Framework.Content.ContentManager Content)
+            : base(Content)
         {
+            name = "Keyboard Game";
+            description = "Tapez 'GORDON' au clavier !";
+            author = "Martin";
             background = new Sprite(Content.Load<Texture2D>("keyboardgame/background")); // On appelle le constructeur de Sprite avec un argument texture2D
         }
 

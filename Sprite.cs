@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace GordonWare
 {
     /// <summary>
-    /// Un sprite est une image, animée ou non.
+    /// Un sprite est une image, animée ou non. 
     /// </summary>
     public class Sprite
     {

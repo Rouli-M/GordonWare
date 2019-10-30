@@ -21,3 +21,5 @@ C:\Users\nittr\Création\GordonWare\GordonWare\obj\x86\Debug\GordonWare.csproj.C
 C:\Users\nittr\Création\GordonWare\GordonWare\obj\x86\Debug\GordonWare.csproj.CopyComplete
 C:\Users\nittr\Création\GordonWare\GordonWare\obj\x86\Debug\GordonWare.exe
 C:\Users\nittr\Création\GordonWare\GordonWare\obj\x86\Debug\GordonWare.pdb
+C:\Users\nittr\Création\GordonWare\GordonWare\bin\Windows\x86\Debug\Content\keyboardgame\background.xnb
+C:\Users\nittr\Création\GordonWare\GordonWare\bin\Windows\x86\Debug\Content\Rouli.xnb

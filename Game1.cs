@@ -28,6 +28,7 @@ namespace GordonWare
         public const int screenWidth = 1280;
         public const int screenHeight = 720;
         public List<MiniGame> miniGames;
+        MiniGame currentMiniGame;
 
         public Game1()
         {
@@ -35,7 +36,6 @@ namespace GordonWare
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = screenWidth;
             graphics.PreferredBackBufferHeight = screenHeight;
-            RouliFont = Content.Load<SpriteFont>("Rouli");
         }
 
 
@@ -60,11 +60,13 @@ namespace GordonWare
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            RouliFont = Content.Load<SpriteFont>("Rouli");
             miniGames = new List<MiniGame>() {
                 new KeyboardGame(Content),
                 // insérer votre jeu ici
             };
 
+            currentMiniGame = miniGames[0];
             // TODO: use this.Content to load your game content here
         }
 
@@ -87,6 +89,8 @@ namespace GordonWare
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            currentMiniGame.Update(gameTime);
+
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -99,8 +103,9 @@ namespace GordonWare
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            currentMiniGame.Draw(spriteBatch);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
