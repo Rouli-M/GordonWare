@@ -23,6 +23,8 @@ namespace GordonWare
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        public SpriteFont RouliFont;
+
         public const int screenWidth = 1280;
         public const int screenHeight = 720;
         public List<MiniGame> miniGames;
@@ -33,6 +35,7 @@ namespace GordonWare
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = screenWidth;
             graphics.PreferredBackBufferHeight = screenHeight;
+            RouliFont = Content.Load<SpriteFont>("Rouli");
         }
 
 
