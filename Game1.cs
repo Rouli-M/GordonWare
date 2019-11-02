@@ -28,7 +28,6 @@ namespace GordonWare
         public const int screenWidth = 1280;
         public const int screenHeight = 720;
         public List<MiniGame> miniGames;
-        MiniGame currentMiniGame;
 
         public Game1()
         {
@@ -84,9 +83,7 @@ namespace GordonWare
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
+            Input.Update(gameTime);
             MiniGameManager.Update(gameTime);
 
             // TODO: Add your update logic here

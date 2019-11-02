@@ -42,6 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Game1.cs" />
+    <Compile Include="Input.cs" />
     <Compile Include="KeyboardGame.cs" />
     <Compile Include="MiniGame.cs" />
     <Compile Include="MiniGameManager.cs" />

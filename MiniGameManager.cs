@@ -44,7 +44,7 @@ namespace GordonWare
 
         public static void Win()
         {
-
+            Transition();
         }
         public static void Lose()
         {

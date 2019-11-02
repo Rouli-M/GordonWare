@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/nittr/Création/GordonWare/GordonWare/Content/transition_screen/bande_vague.png</SourceFile>
-  <SourceTime>2019-11-02T00:51:06.8200975+01:00</SourceTime>
+  <SourceTime>2019-11-02T01:17:35.3712563+01:00</SourceTime>
   <DestFile>C:/Users/nittr/Création/GordonWare/GordonWare/Content/bin/Windows/transition_screen/bande_vague.xnb</DestFile>
-  <DestTime>2019-11-02T00:54:41.5923655+01:00</DestTime>
+  <DestTime>2019-11-02T13:41:39.0667689+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

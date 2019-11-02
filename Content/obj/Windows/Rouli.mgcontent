@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/nittr/Création/GordonWare/GordonWare/Content/Rouli.spritefont</SourceFile>
-  <SourceTime>2018-07-02T01:23:03.0232323+02:00</SourceTime>
+  <SourceTime>2019-11-02T02:07:59.8227863+01:00</SourceTime>
   <DestFile>C:/Users/nittr/Création/GordonWare/GordonWare/Content/bin/Windows/Rouli.xnb</DestFile>
-  <DestTime>2019-10-30T19:50:47.389519+01:00</DestTime>
+  <DestTime>2019-11-02T13:41:38.8354712+01:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

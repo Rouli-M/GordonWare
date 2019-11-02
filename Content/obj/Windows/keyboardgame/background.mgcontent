@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/nittr/Création/GordonWare/GordonWare/Content/keyboardgame/background.png</SourceFile>
-  <SourceTime>2019-10-30T18:53:46.1003413+01:00</SourceTime>
+  <SourceTime>2019-11-02T13:40:45.6945756+01:00</SourceTime>
   <DestFile>C:/Users/nittr/Création/GordonWare/GordonWare/Content/bin/Windows/keyboardgame/background.xnb</DestFile>
-  <DestTime>2019-10-30T19:50:54.5457323+01:00</DestTime>
+  <DestTime>2019-11-02T13:41:36.7457854+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

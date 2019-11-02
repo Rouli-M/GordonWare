@@ -13,6 +13,13 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin keyboardgame/arial.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:keyboardgame/arial.spritefont
+
 #begin keyboardgame/background.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -24,6 +31,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:keyboardgame/background.png
+
+#begin keyboardgame/gordon_down.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:keyboardgame/gordon_down.png
+
+#begin keyboardgame/gordon_up.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:keyboardgame/gordon_up.png
 
 #begin Rouli.spritefont
 /importer:FontDescriptionImporter

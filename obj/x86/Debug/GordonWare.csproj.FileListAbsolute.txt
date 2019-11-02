@@ -27,3 +27,6 @@ C:\Users\nittr\Création\GordonWare\GordonWare\bin\Windows\x86\Debug\Content\tra
 C:\Users\nittr\Création\GordonWare\GordonWare\bin\Windows\x86\Debug\Content\transition_screen\life.xnb
 C:\Users\nittr\Création\GordonWare\GordonWare\bin\Windows\x86\Debug\Content\transition_screen\life_broken.xnb
 C:\Users\nittr\Création\GordonWare\GordonWare\bin\Windows\x86\Debug\Content\transition_screen\bande_vague.xnb
+C:\Users\nittr\Création\GordonWare\GordonWare\bin\Windows\x86\Debug\Content\keyboardgame\gordon_down.xnb
+C:\Users\nittr\Création\GordonWare\GordonWare\bin\Windows\x86\Debug\Content\keyboardgame\gordon_up.xnb
+C:\Users\nittr\Création\GordonWare\GordonWare\bin\Windows\x86\Debug\Content\keyboardgame\arial.xnb

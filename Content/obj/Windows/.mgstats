@@ -1,3 +1,2 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/nittr/Création/GordonWare/GordonWare/Content/transition_screen/background.png","C:/Users/nittr/Création/GordonWare/GordonWare/Content/bin/Windows/transition_screen/background.xnb","TextureProcessor","Texture2DContent",5311,3686485,0,2779749
-"C:/Users/nittr/Création/GordonWare/GordonWare/Content/transition_screen/bande_vague.png","C:/Users/nittr/Création/GordonWare/GordonWare/Content/bin/Windows/transition_screen/bande_vague.xnb","TextureProcessor","Texture2DContent",3778,1009685,0,0429894
+"C:/Users/nittr/Création/GordonWare/GordonWare/Content/keyboardgame/arial.spritefont","C:/Users/nittr/Création/GordonWare/GordonWare/Content/bin/Windows/keyboardgame/arial.xnb","FontDescriptionProcessor","SpriteFontContent",2603,539187,1,315426
