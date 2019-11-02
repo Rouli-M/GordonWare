@@ -37,7 +37,7 @@ namespace GordonWare
                 if (!input_string.EndsWith(keyValue)) input_string += keyValue;
             }
             if (input_string == "GORDON") base.Win();
-            if (!(input_string == "" || 
+            else if (!(input_string == "" || 
                 input_string == "G" || 
                 input_string == "GO" || 
                 input_string == "GOR" || 
