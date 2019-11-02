@@ -48,6 +48,7 @@ namespace GordonWare
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            MiniGameManager.AddMiniGame(new KeyboardGame());
 
             base.Initialize();
         }
@@ -61,12 +62,9 @@ namespace GordonWare
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             RouliFont = Content.Load<SpriteFont>("Rouli");
-            miniGames = new List<MiniGame>() {
-                new KeyboardGame(Content),
-                // insérer votre jeu ici
-            };
+            MiniGameManager.LoadContent(Content);
 
-            currentMiniGame = miniGames[0];
+            // insérer votre jeu ici
             // TODO: use this.Content to load your game content here
         }
 
@@ -89,7 +87,7 @@ namespace GordonWare
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            currentMiniGame.Update(gameTime);
+            MiniGameManager.Update(gameTime);
 
             // TODO: Add your update logic here
 
@@ -104,10 +102,12 @@ namespace GordonWare
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            currentMiniGame.Draw(spriteBatch);
+            MiniGameManager.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);
         }
+
+
     }
 }

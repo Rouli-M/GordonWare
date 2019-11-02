@@ -6,8 +6,16 @@
   <SourceFiles>
     <File>C:/Users/nittr/Création/GordonWare/GordonWare/Content/keyboardgame/background.png</File>
     <File>C:/Users/nittr/Création/GordonWare/GordonWare/Content/Rouli.spritefont</File>
+    <File>C:/Users/nittr/Création/GordonWare/GordonWare/Content/transition_screen/background.png</File>
+    <File>C:/Users/nittr/Création/GordonWare/GordonWare/Content/transition_screen/bande_vague.png</File>
+    <File>C:/Users/nittr/Création/GordonWare/GordonWare/Content/transition_screen/life.png</File>
+    <File>C:/Users/nittr/Création/GordonWare/GordonWare/Content/transition_screen/life_broken.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>

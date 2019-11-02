@@ -23,3 +23,7 @@ C:\Users\nittr\Création\GordonWare\GordonWare\obj\x86\Debug\GordonWare.exe
 C:\Users\nittr\Création\GordonWare\GordonWare\obj\x86\Debug\GordonWare.pdb
 C:\Users\nittr\Création\GordonWare\GordonWare\bin\Windows\x86\Debug\Content\keyboardgame\background.xnb
 C:\Users\nittr\Création\GordonWare\GordonWare\bin\Windows\x86\Debug\Content\Rouli.xnb
+C:\Users\nittr\Création\GordonWare\GordonWare\bin\Windows\x86\Debug\Content\transition_screen\background.xnb
+C:\Users\nittr\Création\GordonWare\GordonWare\bin\Windows\x86\Debug\Content\transition_screen\life.xnb
+C:\Users\nittr\Création\GordonWare\GordonWare\bin\Windows\x86\Debug\Content\transition_screen\life_broken.xnb
+C:\Users\nittr\Création\GordonWare\GordonWare\bin\Windows\x86\Debug\Content\transition_screen\bande_vague.xnb
