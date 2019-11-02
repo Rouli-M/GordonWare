@@ -10,6 +10,7 @@ namespace GordonWare
         private static Sprite background, life, life_broken, bande, bande_reverse;
         private static int life_counter, score, lifetime, transition_timer;
         public static bool is_over { get; private set; } = false;
+        private static Texture2D bande_texture;
 
         public static void Transition (int life_counter, int score, int lifetime)
         {
@@ -26,6 +27,7 @@ namespace GordonWare
             life = new Sprite(Content.Load<Texture2D>("transition_screen/life"));
             life_broken = new Sprite(Content.Load<Texture2D>("transition_screen/life_broken"));
             bande = new Sprite(Content.Load<Texture2D>("transition_screen/bande_vague"));
+            bande_reverse = new Sprite(Content.Load<Texture2D>("transition_screen/bande_vague_reverse"));
         }
 
         public static void Update(GameTime gameTime)
@@ -42,10 +44,10 @@ namespace GordonWare
         public static void Draw(SpriteBatch spriteBatch)
         {
             background.TopLeftDraw(spriteBatch, new Vector2(0, 0));
-            bande.Draw(spriteBatch, new Vector2((transition_timer / 2 + 1280) % (2*1280) - 1280, 530));
-            bande.Draw(spriteBatch, new Vector2(transition_timer / 2 % (2*1280) - 1280, 530));
-            bande.Draw(spriteBatch, new Vector2(1280 / 2 + 1280 - (transition_timer / 2) % (2 * 1280), 70), new Rectangle(0, 0, 1280, 200), 1, SpriteEffects.FlipVertically);
-            bande.Draw(spriteBatch, new Vector2(1280 / 2 + 1280 - ((transition_timer / 2 + 1280) % (2 * 1280)), 70), new Rectangle(0, 0, 1280, 200), 1, SpriteEffects.FlipVertically);
+            bande.TopLeftDraw(spriteBatch, new Vector2((transition_timer / 2 + 1280) % (2*1280) - 1280, 530));
+            bande.TopLeftDraw(spriteBatch, new Vector2(transition_timer / 2 % (2*1280) - 1280, 530));
+            bande_reverse.TopLeftDraw(spriteBatch, new Vector2(1280 - (transition_timer / 2) % (2 * 1280), 0));
+            bande_reverse.TopLeftDraw(spriteBatch, new Vector2(1280 - ((transition_timer / 2 + 1280) % (2 * 1280)), 0));
             for (int i=1; i<4; i++)
             {
                 Sprite display_hearth;
