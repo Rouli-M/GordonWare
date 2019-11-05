@@ -16,6 +16,8 @@ using System.IO;
 namespace GordonWare
 {
     public static class MiniGameManager
+        /// This class manage the minigame by deciding which one should be played
+        /// next, when, at what pace, ... It also manage the player's lifes, score, etc
     {
         static private MiniGame currentMiniGame;
         static private List<MiniGame> minigames = new List<MiniGame>();
@@ -45,7 +47,6 @@ namespace GordonWare
         public static void Win()
         {
             Transition();
-
         }
         public static void Lose()
         {
@@ -72,7 +73,7 @@ namespace GordonWare
         }
          public static void NextMiniGame()
         {
-                minigameId++;
+                minigameId = 0;
                 Console.WriteLine(minigameId);
                 currentMiniGame = minigames[minigameId];
                 currentMiniGame.Reset();
