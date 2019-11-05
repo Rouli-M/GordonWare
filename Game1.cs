@@ -17,6 +17,14 @@ namespace GordonWare
 {
     /// <summary>
     /// This is the main type for your game.
+    /// Please do not modify this or any other class in your pull request, but
+    /// feel free to change it in order to experiment or just add your minigame
+    /// to the minigame rotation in order to test it.
+    /// In order to create a minigame, you have to create a new file with your 
+    /// minigame's name as a title such as "MiniGameName.cs". This class 
+    /// should herit from the MiniGame class, please refer to the MiniGame 
+    /// class and other sample mini games such as KeyboardGame or DabGame to 
+    /// get more specifications.
     /// </summary>
     public class Game1 : Game
     {
@@ -24,7 +32,6 @@ namespace GordonWare
         SpriteBatch spriteBatch;
 
         public SpriteFont RouliFont;
-
         public const int screenWidth = 1280;
         public const int screenHeight = 720;
         public List<MiniGame> miniGames;
@@ -37,7 +44,6 @@ namespace GordonWare
             graphics.PreferredBackBufferHeight = screenHeight;
         }
 
-
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
         /// This is where it can query for any required services and load any non-graphic
@@ -48,6 +54,7 @@ namespace GordonWare
         {
             // TODO: Add your initialization logic here
             MiniGameManager.AddMiniGame(new KeyboardGame());
+            MiniGameManager.AddMiniGame(new DabGame());
 
             base.Initialize();
         }
@@ -61,10 +68,7 @@ namespace GordonWare
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             RouliFont = Content.Load<SpriteFont>("Rouli");
-            MiniGameManager.LoadContent(Content);
-
-            // insérer votre jeu ici
-            // TODO: use this.Content to load your game content here
+            MiniGameManager.LoadContent(Content); // This will call the LoadContent function of your minigame class
         }
 
         /// <summary>
@@ -73,7 +77,6 @@ namespace GordonWare
         /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
         }
 
         /// <summary>
@@ -84,10 +87,7 @@ namespace GordonWare
         protected override void Update(GameTime gameTime)
         {
             Input.Update(gameTime);
-            MiniGameManager.Update(gameTime);
-
-            // TODO: Add your update logic here
-
+            MiniGameManager.Update(gameTime); // This will call your minigame's update function for you
             base.Update(gameTime);
         }
 
@@ -99,12 +99,10 @@ namespace GordonWare
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            MiniGameManager.Draw(spriteBatch);
+            MiniGameManager.Draw(spriteBatch); // And this will call your minigame's draw function!
             spriteBatch.End();
 
             base.Draw(gameTime);
         }
-
-
     }
 }

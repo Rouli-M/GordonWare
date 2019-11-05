@@ -44,6 +44,16 @@ namespace GordonWare
                 input_string == "GORD" || 
                 input_string == "GORDO")) base.Lose();
             Console.WriteLine(input_string);
+
+            if (game_status == GameStatus.Win)
+            {
+
+            }
+            else if (game_status == GameStatus.Lose)
+            {
+
+            }
+
             base.Update(gameTime);
         }
 
