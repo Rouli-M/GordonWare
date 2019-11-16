@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +10,7 @@ namespace GordonWare
 {
     class TaupeGame : MiniGame
     {
-        private Sprite Marteau;
+        private Sprite Hammer;
         private Sprite Gordon, GordonTriste;
 
         private const int showTime = 60;
@@ -17,7 +19,9 @@ namespace GordonWare
         private bool[] killedGordon;
         private Vector2[] holes;
         private int gordonCount;
-
+        
+        private Song song1;
+        private SoundEffect GordonKill;
         private Random random;
 
         public TaupeGame()
@@ -49,6 +53,8 @@ namespace GordonWare
             killedGordon = new bool[8];
             for (int i = 0; i < killedGordon.Length; i++) killedGordon[i] = false;
 
+            MediaPlayer.Play(song1, new TimeSpan(0, 0, 1));
+
             base.Reset();
         }
 
@@ -56,9 +62,12 @@ namespace GordonWare
         {
             base.LoadContent(Content);
             background = new Sprite(Content.Load<Texture2D>("taupegame/background"));
-            Marteau = new Sprite(Content.Load<Texture2D>("taupegame/marteau"));
+            Hammer = new Sprite(Content.Load<Texture2D>("taupegame/marteau"));
             Gordon = new Sprite(Content.Load<Texture2D>("taupegame/gordon"));
             GordonTriste = new Sprite(Content.Load<Texture2D>("taupegame/gordon_triste"));
+
+            GordonKill = Content.Load<SoundEffect>("taupegame/death");
+            song1 = Content.Load<Song>("music/Electro DnB C");
         }
 
         public override void Update(GameTime gameTime)
@@ -81,6 +90,7 @@ namespace GordonWare
                         {
                             killedGordon[i] = true;
                             gordonCount++;
+                            GordonKill.Play();
                         }
                     }
                 }
@@ -109,8 +119,8 @@ namespace GordonWare
             }
 
                 MouseState ms = Mouse.GetState();
-            if (ms.LeftButton == ButtonState.Pressed) Marteau.Draw(spriteBatch, new Vector2(ms.X+80, ms.Y), -(float)Math.PI/6);
-            else Marteau.Draw(spriteBatch, new Vector2(ms.X+80, ms.Y), (float)Math.PI / 6);
+            if (ms.LeftButton == ButtonState.Pressed) Hammer.Draw(spriteBatch, new Vector2(ms.X+80, ms.Y), -(float)Math.PI/6);
+            else Hammer.Draw(spriteBatch, new Vector2(ms.X+80, ms.Y), (float)Math.PI / 6);
 
             base.Draw(spriteBatch);
         }
