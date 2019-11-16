@@ -37,6 +37,18 @@
 /processorParam:TextureFormat=Color
 /build:dabgame/gordon-bd.png
 
+#begin dabgame/gordon-bd-alt.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:dabgame/gordon-bd-alt.png
+
 #begin dabgame/gordon-bg.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -48,6 +60,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:dabgame/gordon-bg.png
+
+#begin dabgame/gordon-bg-alt.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:dabgame/gordon-bg-alt.png
 
 #begin dabgame/gordon-chocolat.png
 /importer:TextureImporter
@@ -78,6 +102,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:dabgame/hm_img.png
+
+#begin dabgame/mlg.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:dabgame/mlg.mp3
 
 #begin keyboardgame/arial.spritefont
 /importer:FontDescriptionImporter
@@ -151,6 +181,13 @@
 /processor:SongProcessor
 /processorParam:Quality=Best
 /build:music/Electro DnB C.mp3
+
+
+#begin music/elevator.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:music/elevator.mp3
 
 #begin music/gameover.ogg
 /importer:OggImporter
