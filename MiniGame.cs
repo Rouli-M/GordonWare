@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 using System;
 
 namespace GordonWare
@@ -10,6 +12,7 @@ namespace GordonWare
         internal Sprite background; // background's sprite, should be 1280.720
         internal string name, author, description; // Name and autoher are not currently displayed, will the description will be during the whole minigame.
         internal Color description_color; // Color of the description, should be either Color.Black or Color.White
+        internal SoundEffect win, lose;
         float timer; // Time since the minigame started in milliseconds.
         private float time_limit; // Time until the moment the player automaticcaly lose. Will decrease with each minigame.
         float outro_time; // Time since the outro animation (either win or lose) started
@@ -25,6 +28,9 @@ namespace GordonWare
         public virtual void LoadContent(Microsoft.Xna.Framework.Content.ContentManager Content)
         {
             Roulifont = Content.Load<SpriteFont>("Rouli");
+            win = Content.Load<SoundEffect>("music/win");
+            lose = Content.Load<SoundEffect>("music/lose");
+
         }
 
         public virtual void Update(GameTime gameTime)
@@ -61,11 +67,15 @@ namespace GordonWare
 
         internal void Win()
         {
+            MediaPlayer.Stop();
+            if (game_status != GameStatus.Win) win.Play();
             game_status = GameStatus.Win;
         }
 
         internal void Lose()
         {
+            MediaPlayer.Stop();
+            if (game_status != GameStatus.Lose) lose.Play();
             game_status = GameStatus.Lose;
         }
 

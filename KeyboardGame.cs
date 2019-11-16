@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 using System;
 
 namespace GordonWare
@@ -9,6 +11,7 @@ namespace GordonWare
     {
         private Sprite gordon_down, gordon_up;
         private SpriteFont arial;
+        private Song song1;
         private string input_string;
         public KeyboardGame()
         {
@@ -27,25 +30,29 @@ namespace GordonWare
             gordon_up = new Sprite(Content.Load<Texture2D>("keyboardgame/gordon_up"));
             gordon_down = new Sprite(Content.Load<Texture2D>("keyboardgame/gordon_down"));
             arial = Content.Load<SpriteFont>("keyboardgame/arial");
+            song1 = Content.Load<Song>("music/Drum n Bass B Drive");
         }
 
         public override void Update(GameTime gameTime)
         {
-            if (Input.keyboard.GetPressedKeys().Length > 0)
+            if (game_status == GameStatus.Pending)
             {
-                var keyValue = Input.keyboard.GetPressedKeys()[0].ToString();
-                if (!input_string.EndsWith(keyValue)) input_string += keyValue;
-            }
-            if (input_string == "GORDON") base.Win();
-            else if (!(input_string == "" || 
-                input_string == "G" || 
-                input_string == "GO" || 
-                input_string == "GOR" || 
-                input_string == "GORD" || 
-                input_string == "GORDO")) base.Lose();
-            Console.WriteLine(input_string);
+                if (Input.keyboard.GetPressedKeys().Length > 0)
+                {
+                    var keyValue = Input.keyboard.GetPressedKeys()[0].ToString();
+                    if (!input_string.EndsWith(keyValue)) input_string += keyValue;
+                }
+                if (input_string == "GORDON") base.Win();
+                else if (!(input_string == "" ||
+                    input_string == "G" ||
+                    input_string == "GO" ||
+                    input_string == "GOR" ||
+                    input_string == "GORD" ||
+                    input_string == "GORDO")) base.Lose();
 
-            if (game_status == GameStatus.Win)
+                // Console.WriteLine(input_string); utilisé pour le debug
+            }
+            else if (game_status == GameStatus.Win)
             {
 
             }
@@ -68,6 +75,7 @@ namespace GordonWare
 
         public override void Reset()
         {
+            MediaPlayer.Play(song1,new TimeSpan(0,0,1));
             input_string = "";
             base.Reset();
         }

@@ -21,6 +21,8 @@ namespace GordonWare
     {
         static private MiniGame currentMiniGame;
         static private List<MiniGame> minigames = new List<MiniGame>();
+        static private Random r;
+        static private SoundEffect gameover, next;
         static private int life_counter = 3;
         static private int score = 0;
         static private int minigameId = -1;
@@ -29,6 +31,9 @@ namespace GordonWare
         {
             foreach (MiniGame minigame in minigames) minigame.LoadContent(Content);
             TransitionScreen.LoadContent(Content);
+            r = new Random();
+            gameover = Content.Load<SoundEffect>("music/gameover");
+            next = Content.Load<SoundEffect>("music/next");
             Transition();
         }
         public static void Update(GameTime gameTime)
@@ -53,11 +58,13 @@ namespace GordonWare
             if (life_counter > 0)
             {
                 life_counter -= 1;
+                if (life_counter == 0)
+                {
+                    Console.WriteLine("game over");
+                    GameOver();
+                }
             }
-            else
-            {
-               // GameOver();
-            }
+
             Transition();
         }
 
@@ -68,19 +75,27 @@ namespace GordonWare
 
         public static void Transition()
         {
+            if (life_counter > 0) next.Play();
             int life_time = 2000;
             TransitionScreen.Transition(life_counter, score, life_time);
         }
          public static void NextMiniGame()
         {
-                minigameId = 0;
-                Console.WriteLine(minigameId);
-                currentMiniGame = minigames[minigameId];
-                currentMiniGame.Reset();
+            int next_minigameId = minigameId;
+            while (minigameId == next_minigameId)
+            {
+                next_minigameId = r.Next(0, minigames.Count());
+            }
+            minigameId = next_minigameId;
+
+            Console.WriteLine(minigameId);
+
+            currentMiniGame = minigames[minigameId];
+            currentMiniGame.Reset();
         }
         internal static void GameOver()
         {
-
+            gameover.Play();
         }
     }
 }

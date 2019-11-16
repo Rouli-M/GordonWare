@@ -8,7 +8,7 @@ namespace GordonWare
     public static class TransitionScreen
     {
         private static Sprite background, life, life_broken, bande, bande_reverse;
-        private static int life_counter, score, lifetime, transition_timer;
+        private static int previous_life_counter, life_counter, display_life_counter, score, lifetime, transition_timer;
         public static bool is_over { get; private set; } = false;
         private static Texture2D bande_texture;
 
@@ -28,6 +28,7 @@ namespace GordonWare
             life_broken = new Sprite(Content.Load<Texture2D>("transition_screen/life_broken"));
             bande = new Sprite(Content.Load<Texture2D>("transition_screen/bande_vague"));
             bande_reverse = new Sprite(Content.Load<Texture2D>("transition_screen/bande_vague_reverse"));
+            previous_life_counter = 3;
         }
 
         public static void Update(GameTime gameTime)
@@ -38,6 +39,7 @@ namespace GordonWare
             {
                 is_over = true;
                 MiniGameManager.NextMiniGame();
+                previous_life_counter = life_counter;
             }
         }
 
@@ -48,13 +50,19 @@ namespace GordonWare
             bande.TopLeftDraw(spriteBatch, new Vector2(transition_timer / 2 % (2*1280) - 1280, 530));
             bande_reverse.TopLeftDraw(spriteBatch, new Vector2(1280 - (transition_timer / 2) % (2 * 1280), 0));
             bande_reverse.TopLeftDraw(spriteBatch, new Vector2(1280 - ((transition_timer / 2 + 1280) % (2 * 1280)), 0));
+
+            if (transition_timer < 700) display_life_counter = previous_life_counter;
+            else display_life_counter = life_counter;
+
             for (int i=1; i<4; i++)
             {
                 Sprite display_hearth;
-                if (i <= life_counter) display_hearth = life;
+                if (i <= display_life_counter) display_hearth = life;
                 else display_hearth = life_broken;
-                display_hearth.Draw(spriteBatch, new Vector2(450 + i * 100, 300));
+                if (transition_timer < 700 && i > life_counter && i == previous_life_counter) display_hearth.Draw(spriteBatch, new Vector2(450 + 10 * (float)Math.Cos(transition_timer/50) + i * 100, 300));
+                else display_hearth.Draw(spriteBatch, new Vector2(450 + i * 100, 300));
             }
+            
         }
     }
 }

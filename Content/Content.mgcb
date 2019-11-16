@@ -164,6 +164,7 @@
 /processorParam:Quality=Best
 /build:music/Electro DnB C.mp3
 
+
 #begin music/elevator.mp3
 /importer:Mp3Importer
 /processor:SongProcessor
@@ -172,25 +173,25 @@
 
 #begin music/gameover.ogg
 /importer:OggImporter
-/processor:SongProcessor
+/processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:music/gameover.ogg
 
 #begin music/lose.ogg
 /importer:OggImporter
-/processor:SongProcessor
+/processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:music/lose.ogg
 
 #begin music/next.ogg
 /importer:OggImporter
-/processor:SongProcessor
+/processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:music/next.ogg
 
 #begin music/win.ogg
 /importer:OggImporter
-/processor:SongProcessor
+/processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:music/win.ogg
 
