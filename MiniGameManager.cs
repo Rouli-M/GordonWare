@@ -51,6 +51,7 @@ namespace GordonWare
 
         public static void Win()
         {
+            score += 1;
             Transition();
         }
         public static void Lose()

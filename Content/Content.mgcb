@@ -170,6 +170,13 @@
 /processorParam:Quality=Best
 /build:keyboardgame/key3.wav
 
+#begin MicrosoftSans.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:MicrosoftSans.spritefont
+
 #begin music/Drum n Bass B Drive.mp3
 /importer:Mp3Importer
 /processor:SongProcessor
@@ -218,6 +225,13 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:Rouli.spritefont
+
+#begin RouliBig.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:RouliBig.spritefont
 
 #begin taupegame/background.png
 /importer:TextureImporter

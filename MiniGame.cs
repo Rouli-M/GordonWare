@@ -49,7 +49,7 @@ namespace GordonWare
         public virtual void Draw(SpriteBatch spriteBatch)
            // This is drew over the minigame : instruction of the minigame and timer.
         {
-            spriteBatch.DrawString(Roulifont, author, new Vector2(1280 - Roulifont.MeasureString(author).X - 10, 5), description_color, 0f, new Vector2(0,0), 1f, SpriteEffects.None, 0f);
+            spriteBatch.DrawString(Roulifont, author, new Vector2(1280 - Roulifont.MeasureString(author).X - 10, 5), description_color * 0.5f, 0f, new Vector2(0,0), 1f, SpriteEffects.None, 0f);
             spriteBatch.DrawString(Roulifont, description,new Vector2(1280/2,25), description_color, 0f, Roulifont.MeasureString(description)/2, 1.6f + 0.1f * (float)Math.Cos(timer/200f),SpriteEffects.None, 0f);
             float time_left = time_limit - timer;
             string seconds_left = Convert.ToString((time_left - time_left % 1000) / 1000);
