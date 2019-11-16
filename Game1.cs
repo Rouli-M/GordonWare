@@ -53,7 +53,7 @@ namespace GordonWare
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            MiniGameManager.AddMiniGame(new KeyboardGame());
+            // MiniGameManager.AddMiniGame(new KeyboardGame());
             MiniGameManager.AddMiniGame(new DabGame());
 
             base.Initialize();
