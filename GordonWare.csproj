@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sprite.cs" />
     <Compile Include="TaupeGame.cs" />
+    <Compile Include="TemplateGame.cs" />
     <Compile Include="TransitionScreen.cs" />
   </ItemGroup>
   <ItemGroup>
