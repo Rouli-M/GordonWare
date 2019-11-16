@@ -17,16 +17,15 @@
 mono_crash.*
 
 # Build results
-[Dd]ebug/
+# [Dd]ebug/
 [Dd]ebugPublic/
-[Rr]elease/
+# [Rr]elease/
 [Rr]eleases/
 x64/
-x86/
+# x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
-[Bb]in/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
@@ -37,7 +36,7 @@ bld/
 #wwwroot/
 
 # Visual Studio 2017 auto generated files
-Generated\ Files/
+# Generated\ Files/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -352,6 +351,11 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-bin/
+#!bin/
+
+bin/*
+!bin/Windows
+
+Content/bin
 
 obj/
