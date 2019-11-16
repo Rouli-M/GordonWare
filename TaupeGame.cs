@@ -63,28 +63,31 @@ namespace GordonWare
 
         public override void Update(GameTime gameTime)
         {
-            MouseState ms = Mouse.GetState();
-            for (int i = 0; i < TimerGordon.Length; i++)
+            if (game_status == GameStatus.Pending)
             {
-                if (!killedGordon[i])
-                    TimerGordon[i]++;
-                if (TimerGordon[i] > loopTime)
-                    TimerGordon[i] = 0;
-            }
-            if (ms.LeftButton == ButtonState.Pressed)
-            {
+                MouseState ms = Mouse.GetState();
                 for (int i = 0; i < TimerGordon.Length; i++)
                 {
-                    if (!killedGordon[i] && TimerGordon[i] < showTime && (new Vector2(ms.X, ms.Y) - holes[i]).Length() <= 50)
+                    if (!killedGordon[i])
+                        TimerGordon[i]++;
+                    if (TimerGordon[i] > loopTime)
+                        TimerGordon[i] = 0;
+                }
+                if (ms.LeftButton == ButtonState.Pressed)
+                {
+                    for (int i = 0; i < TimerGordon.Length; i++)
                     {
-                        killedGordon[i] = true;
-                        gordonCount++;
+                        if (!killedGordon[i] && TimerGordon[i] < showTime && (new Vector2(ms.X, ms.Y) - holes[i]).Length() <= 50)
+                        {
+                            killedGordon[i] = true;
+                            gordonCount++;
+                        }
                     }
                 }
-            }
-            if (gordonCount >= 3)
-            {
-                Win();
+                if (gordonCount >= 3)
+                {
+                    if (game_status == GameStatus.Pending) Win();
+                }
             }
             base.Update(gameTime);
         }

@@ -32,13 +32,15 @@ namespace GordonWare
 
         public override void Update(GameTime gameTime)
         {
-            //base.Win();
-            //base.Lose();*
+
             double threshold = 0.15;
-            if (Math.Abs(2.81 - rotation_bd) < threshold && Math.Abs(2.78 - rotation_bg) < threshold)
+            if (game_status == GameStatus.Pending)
             {
-                WinSFX();
-                base.Win();
+                if (Math.Abs(2.81 - rotation_bd) < threshold && Math.Abs(2.78 - rotation_bg) < threshold)
+                {
+                    WinSFX();
+                    base.Win();
+                }
             }
             base.Update(gameTime);
         }
