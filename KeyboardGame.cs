@@ -31,21 +31,24 @@ namespace GordonWare
 
         public override void Update(GameTime gameTime)
         {
-            if (Input.keyboard.GetPressedKeys().Length > 0)
+            if (game_status == GameStatus.Pending)
             {
-                var keyValue = Input.keyboard.GetPressedKeys()[0].ToString();
-                if (!input_string.EndsWith(keyValue)) input_string += keyValue;
-            }
-            if (input_string == "GORDON") base.Win();
-            else if (!(input_string == "" || 
-                input_string == "G" || 
-                input_string == "GO" || 
-                input_string == "GOR" || 
-                input_string == "GORD" || 
-                input_string == "GORDO")) base.Lose();
-            Console.WriteLine(input_string);
+                if (Input.keyboard.GetPressedKeys().Length > 0)
+                {
+                    var keyValue = Input.keyboard.GetPressedKeys()[0].ToString();
+                    if (!input_string.EndsWith(keyValue)) input_string += keyValue;
+                }
+                if (input_string == "GORDON") base.Win();
+                else if (!(input_string == "" ||
+                    input_string == "G" ||
+                    input_string == "GO" ||
+                    input_string == "GOR" ||
+                    input_string == "GORD" ||
+                    input_string == "GORDO")) base.Lose();
 
-            if (game_status == GameStatus.Win)
+                // Console.WriteLine(input_string); utilisé pour le debug
+            }
+            else if (game_status == GameStatus.Win)
             {
 
             }

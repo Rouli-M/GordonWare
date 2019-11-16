@@ -21,6 +21,7 @@ namespace GordonWare
     {
         static private MiniGame currentMiniGame;
         static private List<MiniGame> minigames = new List<MiniGame>();
+        static private Random r;
         static private int life_counter = 3;
         static private int score = 0;
         static private int minigameId = -1;
@@ -29,6 +30,7 @@ namespace GordonWare
         {
             foreach (MiniGame minigame in minigames) minigame.LoadContent(Content);
             TransitionScreen.LoadContent(Content);
+            r = new Random();
             Transition();
         }
         public static void Update(GameTime gameTime)
@@ -73,10 +75,17 @@ namespace GordonWare
         }
          public static void NextMiniGame()
         {
-                minigameId = 0;
-                Console.WriteLine(minigameId);
-                currentMiniGame = minigames[minigameId];
-                currentMiniGame.Reset();
+            int next_minigameId = minigameId;
+            while (minigameId == next_minigameId)
+            {
+                next_minigameId = r.Next(0, minigames.Count());
+            }
+            minigameId = next_minigameId;
+
+            Console.WriteLine(minigameId);
+
+            currentMiniGame = minigames[minigameId];
+            currentMiniGame.Reset();
         }
         internal static void GameOver()
         {

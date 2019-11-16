@@ -55,6 +55,7 @@ namespace GordonWare
             // TODO: Add your initialization logic here
             MiniGameManager.AddMiniGame(new KeyboardGame());
             MiniGameManager.AddMiniGame(new DabGame());
+            MiniGameManager.AddMiniGame(new TaupeGame());
 
             base.Initialize();
         }
