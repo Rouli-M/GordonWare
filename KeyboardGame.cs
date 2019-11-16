@@ -12,6 +12,8 @@ namespace GordonWare
         private Sprite gordon_down, gordon_up;
         private SpriteFont arial;
         private Song song1;
+        private Random r;
+        private SoundEffect key1, key2, key3;
         private string input_string;
         public KeyboardGame()
         {
@@ -31,6 +33,9 @@ namespace GordonWare
             gordon_down = new Sprite(Content.Load<Texture2D>("keyboardgame/gordon_down"));
             arial = Content.Load<SpriteFont>("keyboardgame/arial");
             song1 = Content.Load<Song>("music/Drum n Bass B Drive");
+            key1 = Content.Load<SoundEffect>("keyboardgame/key1");
+            key2 = Content.Load<SoundEffect>("keyboardgame/key2");
+            key3 = Content.Load<SoundEffect>("keyboardgame/key3");
         }
 
         public override void Update(GameTime gameTime)
@@ -40,7 +45,13 @@ namespace GordonWare
                 if (Input.keyboard.GetPressedKeys().Length > 0)
                 {
                     var keyValue = Input.keyboard.GetPressedKeys()[0].ToString();
-                    if (!input_string.EndsWith(keyValue)) input_string += keyValue;
+                    if (!input_string.EndsWith(keyValue))
+                    {
+                        input_string += keyValue;
+                        if (r.Next(0, 2) == 0) key1.Play();
+                        else if (r.Next(0, 2) == 0) key2.Play();
+                        else key3.Play();
+                    }
                 }
                 if (input_string == "GORDON") base.Win();
                 else if (!(input_string == "" ||
@@ -75,6 +86,7 @@ namespace GordonWare
 
         public override void Reset()
         {
+            r = new Random();
             MediaPlayer.Play(song1,new TimeSpan(0,0,1));
             input_string = "";
             base.Reset();

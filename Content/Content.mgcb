@@ -122,6 +122,24 @@
 /processorParam:TextureFormat=Color
 /build:keyboardgame/gordon_up.png
 
+#begin keyboardgame/key1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:keyboardgame/key1.wav
+
+#begin keyboardgame/key2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:keyboardgame/key2.wav
+
+#begin keyboardgame/key3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:keyboardgame/key3.wav
+
 #begin music/Drum n Bass B Drive.mp3
 /importer:Mp3Importer
 /processor:SongProcessor
