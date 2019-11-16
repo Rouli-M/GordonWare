@@ -10,6 +10,7 @@ namespace GordonWare
     public class MiniGame
     {
         internal Sprite background; // background's sprite, should be 1280.720
+        private Texture2D bar; // Used to display the time left at the bottom of the minigame
         internal string name, author, description; // Name and autoher are not currently displayed, will the description will be during the whole minigame.
         internal Color description_color; // Color of the description, should be either Color.Black or Color.White
         internal SoundEffect win, lose;
@@ -28,9 +29,9 @@ namespace GordonWare
         public virtual void LoadContent(Microsoft.Xna.Framework.Content.ContentManager Content)
         {
             Roulifont = Content.Load<SpriteFont>("Rouli");
+            bar = Content.Load<Texture2D>("white_fullscreen");
             win = Content.Load<SoundEffect>("music/win");
             lose = Content.Load<SoundEffect>("music/lose");
-
         }
 
         public virtual void Update(GameTime gameTime)
@@ -53,6 +54,9 @@ namespace GordonWare
             string seconds_left = Convert.ToString((time_left - time_left % 1000) / 1000);
             string milliseconds_left = game_status == GameStatus.Lose?"0":Convert.ToString(999 - timer % 1000);
             spriteBatch.DrawString(Roulifont, seconds_left + "." + milliseconds_left, new Vector2(10,10), description_color, 0f, new Vector2(), 2, SpriteEffects.None, 0);
+            float current_evolution = (time_limit - time_left) / time_limit; // from 1 to 0 with the time passing
+            Color bar_color = new Color(2 * current_evolution, 2 * (1 - current_evolution), 0f);
+            spriteBatch.Draw(bar, new Vector2(- 1280 * current_evolution, 690), bar_color);
         }
 
         public virtual void Reset()
