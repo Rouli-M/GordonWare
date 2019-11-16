@@ -122,6 +122,18 @@
 /processorParam:TextureFormat=Color
 /build:keyboardgame/gordon_up.png
 
+#begin music/Drum n Bass B Drive.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:music/Drum n Bass B Drive.mp3
+
+#begin music/Electro DnB C.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:music/Electro DnB C.mp3
+
 #begin music/gameover.ogg
 /importer:OggImporter
 /processor:SoundEffectProcessor

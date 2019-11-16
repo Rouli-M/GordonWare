@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 using System;
 
 namespace GordonWare
@@ -9,6 +11,7 @@ namespace GordonWare
     {
         private Sprite gordon_down, gordon_up;
         private SpriteFont arial;
+        private Song song1;
         private string input_string;
         public KeyboardGame()
         {
@@ -27,6 +30,7 @@ namespace GordonWare
             gordon_up = new Sprite(Content.Load<Texture2D>("keyboardgame/gordon_up"));
             gordon_down = new Sprite(Content.Load<Texture2D>("keyboardgame/gordon_down"));
             arial = Content.Load<SpriteFont>("keyboardgame/arial");
+            song1 = Content.Load<Song>("music/Drum n Bass B Drive");
         }
 
         public override void Update(GameTime gameTime)
@@ -71,6 +75,7 @@ namespace GordonWare
 
         public override void Reset()
         {
+            MediaPlayer.Play(song1,new TimeSpan(0,0,1));
             input_string = "";
             base.Reset();
         }

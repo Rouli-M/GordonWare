@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 using System;
 
 namespace GordonWare
@@ -66,13 +67,15 @@ namespace GordonWare
 
         internal void Win()
         {
+            MediaPlayer.Stop();
             if (game_status != GameStatus.Win) win.Play();
             game_status = GameStatus.Win;
         }
 
         internal void Lose()
         {
-            if(game_status != GameStatus.Lose) lose.Play();
+            MediaPlayer.Stop();
+            if (game_status != GameStatus.Lose) lose.Play();
             game_status = GameStatus.Lose;
         }
 
