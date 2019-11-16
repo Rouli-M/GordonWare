@@ -16,8 +16,8 @@ using System.IO;
 namespace GordonWare
 {
     public static class MiniGameManager
-        /// This class manage the minigame by deciding which one should be played
-        /// next, when, at what pace, ... It also manage the player's lifes, score, etc
+    /// This class manage the minigame by deciding which one should be played
+    /// next, when, at what pace, ... It also manage the player's lifes, score, etc
     {
         static private MiniGame currentMiniGame;
         static private List<MiniGame> minigames = new List<MiniGame>();
@@ -26,6 +26,7 @@ namespace GordonWare
         static private int life_counter = 3;
         static private int score = 0;
         static private int minigameId = -1;
+        public static int time_limit { get; private set; } = 4000; // Limit of time in ms, will decrease over time
 
         public static void LoadContent(Microsoft.Xna.Framework.Content.ContentManager Content)
         {
@@ -87,14 +88,13 @@ namespace GordonWare
             {
                 next_minigameId = r.Next(0, minigames.Count());
             }
-
             minigameId = next_minigameId;
-            if (minigames.Count() == 1) minigameId = 0;
+            if (minigames.Count() == 1) minigameId = 0; // Used when testing only one game
 
             Console.WriteLine(minigameId);
-
             currentMiniGame = minigames[minigameId];
             currentMiniGame.Reset();
+            time_limit = Convert.ToInt32(time_limit * 0.95f);
         }
         internal static void GameOver()
         {

@@ -63,7 +63,7 @@ namespace GordonWare
                 Sprite display_hearth;
                 if (i <= display_life_counter) display_hearth = life;
                 else display_hearth = life_broken;
-                if (transition_timer < 700 && i > life_counter && i == previous_life_counter) display_hearth.Draw(spriteBatch, new Vector2(450 + 10 * (float)Math.Cos((double)transition_timer/1000) + i * 100, 475));
+                if (transition_timer < 700 && i > life_counter && i == previous_life_counter) display_hearth.Draw(spriteBatch, new Vector2(450 + 10 * (float)Math.Cos(Convert.ToDouble(transition_timer * 0.04f)) + i * 100, 475));
                 else display_hearth.Draw(spriteBatch, new Vector2(450 + i * 100, 475));
             }
             
