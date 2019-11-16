@@ -83,11 +83,13 @@ namespace GordonWare
          public static void NextMiniGame()
         {
             int next_minigameId = minigameId;
-            while (minigameId == next_minigameId)
+            if (minigames.Count() > 1) while (minigameId == next_minigameId)
             {
                 next_minigameId = r.Next(0, minigames.Count());
             }
+
             minigameId = next_minigameId;
+            if (minigames.Count() == 1) minigameId = 0;
 
             Console.WriteLine(minigameId);
 
