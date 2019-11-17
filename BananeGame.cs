@@ -4,21 +4,31 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
 using System;
+using System.Linq;
 
 namespace GordonWare
 {
     class BananeGame : MiniGame
     {
+        public enum GordonState { Attente = 0, Heureux = 1, Colere = 2}
+        public enum Destination { Gauche = 0, Droite = 1, None = 2}
+
         // Add your local variable with their type here (example : int Speed)
         private string[] inWords, outWords, allWords;
-        private Sprite banane;
+        private string mot;
+        private GordonState gordonState;
+        private Destination dest, input;
+        private float tailleTexte;
+        private Sprite banane, gordonAttente, gordonHeureux, gordonColere, croix, check;
+       
         private Random random;
+        private SpriteFont arial;
 
         public BananeGame()
         {
             name = "Banane Game";
             description = "Aide Gordon a ranger les bons objets dans la banane PT";
-            description_color = Color.Black; // Color of the description/timer, black or white is better
+            description_color = Color.White; // Color of the description/timer, black or white is better
             author = "martial";
 
             inWords = new string[] { "raclette", "algorithme", "pecha kucha", "université", "internet", "extradoc"};
@@ -26,92 +36,33 @@ namespace GordonWare
             allWords = new string[inWords.Length + outWords.Length];
             inWords.CopyTo(allWords, 0);
             outWords.CopyTo(allWords, inWords.Length);
-
         }
 
-        public override void Reset()
-        {
-            // Please add the resetting of your game here, such as new random generation
-
-            base.Reset(); // This calls MiniGame.Reset() to reset other things
-
-            random = new Random();
-        }
-
-        public override void LoadContent(Microsoft.Xna.Framework.Content.ContentManager Content)
-        {
-            // Okay, here's the kinda tricky part :
-
-            base.LoadContent(Content); // This calls MiniGame.LoadContent() in oreder to load stuff mandatory for every minigame, such as the font.
-
-            background = new Sprite(Content.Load<Texture2D>("keyboardgame/background"));
-            banane = new Sprite(Content.Load<Texture2D>("bananegame/banane_t.png"));
-
-            // Below, load every ressource needed for your game (sounds, pictures, fonts, ...)
-            // In order for a ressource to be available, you must :
-            //   - create a new fodler with the name of your game in the "Content" folder inside the "GordonWare" folder
-            //   - add your ressource inside it
-            //   - Open Content.mgcb with the MonoGame Pipeline tool (you must have monogame installed on your computer
-            //   - click on "add existing item" (the square with a green + sign on it)
-            //   - select every ressource and confirm (you can add new ressources later on without re-adding everything)
-            //   - click on "Build" (the arrow pointing downward)
-            // Once this is done, you can load any ressource with Content.Load<YourRessourceType>(yourgamename/ressourcename) in this part of the code
-
-            // example (a background is mandatory for any game, so you'll have to add a line like this) :
-            //background = new Sprite(Content.Load<Texture2D>("templategame/background"));
-
-            // common ressources type are : 
-            //   - Texture2D for textures, used in a Sprite constructor as above
-            //   - SoundEffects that can be played whenever you want using SoundEffectName.Play()
-            //   - SpriteFont to write stuff.
-        }
+        
         public override void Update(GameTime gameTime)
         {
             if (game_status == GameStatus.Pending)
             {
-                int nbloop = 3;
+                if (Keyboard.GetState().IsKeyDown(Keys.Left)) input = Destination.Gauche; //( à remplacer par souris ptetre)
+                if (Keyboard.GetState().IsKeyDown(Keys.Right)) input = Destination.Droite;
 
-                for(int i=nbloop; i>0; i--) {
-                    int mot_index = random.Next(0, allWords.Length);
-                    string mot = allWords[mot_index];
-
-                    int resultat = create_session(3, mot);
-                    if (resultat == 0) base.Lose();
+                if(input != Destination.None)
+                {
+                    if (input == dest) base.Win();
+                    else base.Lose();
                 }
-
-                base.Win();
-
             }
             else if (game_status == GameStatus.Win)
             {
-                // This is mandatory, but you can also allow the player to do something else if he won 
-                // (there's a short window of time after win before going to the transition screen)
+                gordonState = GordonState.Heureux;
             }
             else if (game_status == GameStatus.Lose)
             {
-                // You can here mock the player for losing for the same short period of time
+                if(dest == Destination.Gauche){ //si destination banane + erreur
+                    gordonState = GordonState.Colere;
+                }
             }
-            base.Update(gameTime); // Calls MiniGame.Update() to update other logic such as timer decreasing, ... Feel free to check it
-        }
-
-        private int create_session(int temps, string mot){
-            //afficher gordon attente
-
-            // afficher mot
-
-            // get entree
-
-            //if bon :
-                //afficher check
-                //if not inWord:(gordon)
-                    //afficher gordon content
-            //else:
-                //afficher croix
-                //if not inWord:
-                    //afficher gordon pas content
-
-            return 0;
-                    
+            base.Update(gameTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -121,14 +72,69 @@ namespace GordonWare
             // first, you have to draw the background, then everything that's above (from back to front)
             background.TopLeftDraw(spriteBatch, new Vector2(0, 0));
 
-            // PlayerSprite.Draw(spriteBatch, Position);
+            //banane
+            banane.TopLeftDraw(spriteBatch, new Vector2(200, 250), 1f, 1.5f);
+
+            //gordon
+            if (gordonState == GordonState.Attente) gordonAttente.TopLeftDraw(spriteBatch, new Vector2(800, 250), 1f, 4.5f);
+            else if (gordonState == GordonState.Heureux) gordonHeureux.TopLeftDraw(spriteBatch, new Vector2(800, 250), 1f, 4.5f);
+            else gordonColere.TopLeftDraw(spriteBatch, new Vector2(800, 250), 1f, 4.5f);
+
+            //mot à classer
+            drawString(spriteBatch, arial, mot, Color.White);
+
+            if (game_status == GameStatus.Win)
+            {
+                check.TopLeftDraw(spriteBatch, new Vector2(300, 100), 1f, 2f);
+                //if not inWord:(gordon)
+                //translation texte vers gordon
+                //else:
+                //translation texte vers la banane
+            }
+            else if (game_status == GameStatus.Lose)
+            {
+                croix.TopLeftDraw(spriteBatch, new Vector2(300, 100), 1f, 2f);
+            }
 
             base.Draw(spriteBatch); // Above your minigame, the description and timer are drawn so donc forget to call MiniGame.Draw() with this.
         }
 
-        // Please feel free to check the other mini-games class, and to copy some part of it such as how to get keyboard input, mouse input, ...
-        // If you want to test your minigame, please go in the Game1 class (main game logic), remove the other minigames in the init function, and add your game.
-        // Feel free to contact any member that contributed to ask them question about the code or their game class
-        // Good luck :)
+        private void drawString(SpriteBatch spriteBatch, SpriteFont font, string texte, Color couleur){
+            spriteBatch.DrawString(font, texte, new Vector2(500, 150), couleur, 0f, new Vector2(0, 0), 2f, SpriteEffects.None, 0f);
+        }
+
+        public override void Reset()
+        {
+            // Please add the resetting of your game here, such as new random generation
+
+            base.Reset(); // This calls MiniGame.Reset() to reset other things
+
+            random = new Random();
+            int mot_index = random.Next(0, allWords.Length);
+            mot = allWords[mot_index]; //mot à classer
+
+            if (inWords.Contains(mot)) dest = Destination.Gauche; //appartient à la banane
+            else dest = Destination.Droite;
+
+            input = Destination.None;
+
+            gordonState = GordonState.Attente;
+            tailleTexte = 1f;
+        }
+
+        public override void LoadContent(Microsoft.Xna.Framework.Content.ContentManager Content)
+        {
+            base.LoadContent(Content); // This calls MiniGame.LoadContent() in oreder to load stuff mandatory for every minigame, such as the font.
+
+            background = new Sprite(Content.Load<Texture2D>("bananegame/background"));
+            banane = new Sprite(Content.Load<Texture2D>("bananegame/banane_t"));
+            gordonHeureux = new Sprite(Content.Load<Texture2D>("bananegame/gordon_heureux"));
+            gordonColere = new Sprite(Content.Load<Texture2D>("bananegame/gordon_colere"));
+            gordonAttente = new Sprite(Content.Load<Texture2D>("bananegame/gordon_attente"));
+            croix = new Sprite(Content.Load<Texture2D>("bananegame/red-cross"));
+            check = new Sprite(Content.Load<Texture2D>("bananegame/green-check"));
+
+            arial = Content.Load<SpriteFont>("keyboardgame/arial");
+        }
     }
 }
