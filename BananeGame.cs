@@ -19,7 +19,8 @@ namespace GordonWare
         private GordonState gordonState;
         private Destination dest, input;
         private float tailleTexte;
-        private Sprite banane, gordonAttente, gordonHeureux, gordonColere, croix, check;
+        private Sprite banane, gordonAttente, gordonHeureux, gordonColere, croix, check, signLeft, signRight;
+        private Vector2 offsetTexte;
        
         private Random random;
         private SpriteFont arial;
@@ -31,8 +32,8 @@ namespace GordonWare
             description_color = Color.White; // Color of the description/timer, black or white is better
             author = "martial";
 
-            inWords = new string[] { "raclette", "algorithme", "pecha kucha", "université", "internet", "extradoc"};
-            outWords = new string[] { "banane", "gordon", "fromage", "bière", "linux", "madoc" };
+            inWords = new string[] { "Raclette", "Algorithme", "Pecha Kucha", "Université", "Internet", "Extradoc"};
+            outWords = new string[] { "Banane", "Gordon", "Fromage", "Bière", "Linux", "Madoc" };
             allWords = new string[inWords.Length + outWords.Length];
             inWords.CopyTo(allWords, 0);
             outWords.CopyTo(allWords, inWords.Length);
@@ -53,8 +54,20 @@ namespace GordonWare
                 }
             }
             else if (game_status == GameStatus.Win)
-            {
-                gordonState = GordonState.Heureux;
+            {  
+                if (dest == Destination.Gauche)
+                {
+                    offsetTexte.X-=5;
+                    offsetTexte.Y+=5;
+                    //translation vers banane
+                }
+                else
+                {
+                    offsetTexte.X+=5;
+                    offsetTexte.Y+=5;
+                    gordonState = GordonState.Heureux;
+                    //translation vers gordon
+                }
             }
             else if (game_status == GameStatus.Lose)
             {
@@ -73,34 +86,40 @@ namespace GordonWare
             background.TopLeftDraw(spriteBatch, new Vector2(0, 0));
 
             //banane
-            banane.TopLeftDraw(spriteBatch, new Vector2(200, 250), 1f, 1.5f);
+            banane.TopLeftDraw(spriteBatch, new Vector2(200, 250), 1f, 1.7f);
 
             //gordon
-            if (gordonState == GordonState.Attente) gordonAttente.TopLeftDraw(spriteBatch, new Vector2(800, 250), 1f, 4.5f);
-            else if (gordonState == GordonState.Heureux) gordonHeureux.TopLeftDraw(spriteBatch, new Vector2(800, 250), 1f, 4.5f);
-            else gordonColere.TopLeftDraw(spriteBatch, new Vector2(800, 250), 1f, 4.5f);
+
+            Vector2 posGordon = new Vector2(800, 350);
+            if (gordonState == GordonState.Attente) gordonAttente.TopLeftDraw(spriteBatch, posGordon, 1f, 4.5f);
+            else if (gordonState == GordonState.Heureux) gordonHeureux.TopLeftDraw(spriteBatch, posGordon, 1f, 4.5f);
+            else gordonColere.TopLeftDraw(spriteBatch, posGordon, 1f, 4.5f);
 
             //mot à classer
-            drawString(spriteBatch, arial, mot, Color.White);
+            drawString(spriteBatch, arial, mot, offsetTexte, Color.White);
+
+            signLeft.TopLeftDraw(spriteBatch, new Vector2(150, 100), 1f, 1f);
+            signRight.TopLeftDraw(spriteBatch, new Vector2(1280-150-signRight.frameWidth, 100), 1f, 1f);
 
             if (game_status == GameStatus.Win)
             {
-                check.TopLeftDraw(spriteBatch, new Vector2(300, 100), 1f, 2f);
-                //if not inWord:(gordon)
-                //translation texte vers gordon
-                //else:
-                //translation texte vers la banane
+                check.TopLeftDraw(spriteBatch, new Vector2(400, 100), 1f, 2f);
             }
             else if (game_status == GameStatus.Lose)
             {
-                croix.TopLeftDraw(spriteBatch, new Vector2(300, 100), 1f, 2f);
+                croix.TopLeftDraw(spriteBatch, new Vector2(400, 100), 1f, 2f);
             }
 
             base.Draw(spriteBatch); // Above your minigame, the description and timer are drawn so donc forget to call MiniGame.Draw() with this.
         }
 
-        private void drawString(SpriteBatch spriteBatch, SpriteFont font, string texte, Color couleur){
-            spriteBatch.DrawString(font, texte, new Vector2(500, 150), couleur, 0f, new Vector2(0, 0), 2f, SpriteEffects.None, 0f);
+        private void drawString(SpriteBatch spriteBatch, SpriteFont font, string texte, Vector2 offset, Color couleur){
+            Vector2 size = font.MeasureString(texte); // donne les dimentions en px du texte
+
+            Vector2 position = new Vector2(1280/2-2*size.X/3 +offset.X, 200+offset.Y); //fine tuning the position
+
+             
+            spriteBatch.DrawString(font, texte, position, couleur, 0f, new Vector2(0, 0), 1.5f, SpriteEffects.None, 0f);
         }
 
         public override void Reset()
@@ -120,6 +139,7 @@ namespace GordonWare
 
             gordonState = GordonState.Attente;
             tailleTexte = 1f;
+            offsetTexte = new Vector2(0, 0);
         }
 
         public override void LoadContent(Microsoft.Xna.Framework.Content.ContentManager Content)
@@ -133,6 +153,9 @@ namespace GordonWare
             gordonAttente = new Sprite(Content.Load<Texture2D>("bananegame/gordon_attente"));
             croix = new Sprite(Content.Load<Texture2D>("bananegame/red-cross"));
             check = new Sprite(Content.Load<Texture2D>("bananegame/green-check"));
+
+            signLeft = new Sprite(Content.Load<Texture2D>("bananegame/sign-left"));
+            signRight = new Sprite(Content.Load<Texture2D>("bananegame/sign-right"));
 
             arial = Content.Load<SpriteFont>("keyboardgame/arial");
         }
