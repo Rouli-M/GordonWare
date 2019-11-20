@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Calendar.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="GordonMiner.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="DabGame.cs" />
     <Compile Include="KeyboardGame.cs" />

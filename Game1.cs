@@ -57,6 +57,7 @@ namespace GordonWare
             MiniGameManager.AddMiniGame(new KeyboardGame());
             MiniGameManager.AddMiniGame(new DabGame());
             MiniGameManager.AddMiniGame(new TaupeGame());
+            MiniGameManager.AddMiniGame(new GordonMiner());
 
             base.Initialize();
         }
