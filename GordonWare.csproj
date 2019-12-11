@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="BananeGame.cs" />
     <Compile Include="Calendar.cs" />
+    <Compile Include="ChooseServiceGame.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GordonMiner.cs" />
     <Compile Include="Input.cs" />
