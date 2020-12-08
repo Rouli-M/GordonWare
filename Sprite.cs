@@ -38,8 +38,8 @@ namespace GordonWare
             this.Texture = Texture;
             this.scale = scale;
             isAnimated = false;
-            frameHeight = Convert.ToInt32(scale * Texture.Height);
-            frameWidth = Convert.ToInt32(scale * Texture.Width);
+            frameHeight = Convert.ToInt32(Texture.Height);
+            frameWidth = Convert.ToInt32(Texture.Width);
             Source = new Rectangle(0, 0, Texture.Width, Texture.Height);
             if (direction == -1) effects = SpriteEffects.FlipHorizontally;
             else effects = SpriteEffects.None;

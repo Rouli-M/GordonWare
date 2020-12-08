@@ -54,14 +54,15 @@ namespace GordonWare
         protected override void Initialize()
         {
             // If you want the game to only play your minigame in order to test it, please remove every other game and add only yours to MiniGameManager
-            //MiniGameManager.AddMiniGame(TemplateGame));
+            //MiniGameManager.AddMiniGame(new TemplateGame());
+            MiniGameManager.AddMiniGame(new PizzaGame());
             MiniGameManager.AddMiniGame(new KeyboardGame());
             MiniGameManager.AddMiniGame(new DabGame());
             MiniGameManager.AddMiniGame(new TaupeGame());
             MiniGameManager.AddMiniGame(new BananeGame());
             MiniGameManager.AddMiniGame(new GordonMinerGame());
             MiniGameManager.AddMiniGame(new ChooseServiceGame());
-
+            
             base.Initialize();
         }
 

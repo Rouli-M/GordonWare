@@ -100,5 +100,7 @@ namespace GordonWare
         {
             gameover.Play();
         }
+
+        public static int GetScore() { return score; }
     }
 }
