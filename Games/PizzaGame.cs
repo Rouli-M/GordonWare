@@ -113,8 +113,8 @@ namespace GordonWare
                     if (movement_direction != 0)
                     {
                         CurrentSprite = walk;
-                        int speed = 9;
-                        if(MiniGameManager.GetScore() > 9) speed = MiniGameManager.GetScore();
+                        int speed = 11;
+                       // if(MiniGameManager.GetScore() > 9) speed = MiniGameManager.GetScore();
                         PlayerVelocity.X = movement_direction * speed;
                     }
                 }
