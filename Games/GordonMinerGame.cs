@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace GordonWare
 {
-    public class GordonMiner : MiniGame
+    public class GordonMinerGame : MiniGame
     {
         private Sprite GordoniumOre;
         private Sprite Gordonium;
@@ -26,7 +26,7 @@ namespace GordonWare
 
         private int gordonium;
 
-        public GordonMiner()
+        public GordonMinerGame()
         {
             name = "Gordon Miner";
             description = "Mine 10 gordonium !";

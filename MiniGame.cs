@@ -47,7 +47,7 @@ namespace GordonWare
 
         }
         public virtual void Draw(SpriteBatch spriteBatch)
-           // This is drew over the minigame : instruction of the minigame and timer.
+           // This is drawn over the minigame : instruction of the minigame and timer.
         {
             spriteBatch.DrawString(Roulifont, author, new Vector2(1280 - Roulifont.MeasureString(author).X - 10, 5), description_color * 0.2f, 0f, new Vector2(0,0), 1f, SpriteEffects.None, 0f);
             spriteBatch.DrawString(Roulifont, description,new Vector2(1280/2,25), description_color, 0f, Roulifont.MeasureString(description)/2, 1.6f + 0.1f * (float)Math.Cos(timer/200f),SpriteEffects.None, 0f);

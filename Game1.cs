@@ -21,9 +21,10 @@ namespace GordonWare
     /// feel free to change it in order to experiment or just add your minigame
     /// to the minigame rotation in order to test it.
     /// In order to create a minigame, you have to create a new file with your 
-    /// minigame's name as a title such as "MiniGameName.cs". This class 
-    /// should herit from the MiniGame class, please refer to the MiniGame 
-    /// class and other sample mini games such as KeyboardGame or DabGame to 
+    /// minigame's name as a title such as "MiniGameName.cs" in the Games folder.
+    /// You can copy the content of the file "TemplateGame" in this new file.
+    /// This class should herit from the MiniGame class, you can refer to the 
+    /// MiniGame class and other sample mini games such as KeyboardGame or DabGame to 
     /// get more specifications.
     /// </summary>
     public class Game1 : Game
@@ -58,7 +59,7 @@ namespace GordonWare
             MiniGameManager.AddMiniGame(new DabGame());
             MiniGameManager.AddMiniGame(new TaupeGame());
             MiniGameManager.AddMiniGame(new BananeGame());
-            MiniGameManager.AddMiniGame(new GordonMiner());
+            MiniGameManager.AddMiniGame(new GordonMinerGame());
             MiniGameManager.AddMiniGame(new ChooseServiceGame());
 
             base.Initialize();
@@ -74,14 +75,6 @@ namespace GordonWare
             spriteBatch = new SpriteBatch(GraphicsDevice);
             RouliFont = Content.Load<SpriteFont>("Rouli");
             MiniGameManager.LoadContent(Content); // This will call the LoadContent function of your minigame class
-        }
-
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// game-specific content.
-        /// </summary>
-        protected override void UnloadContent()
-        {
         }
 
         /// <summary>

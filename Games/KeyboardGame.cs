@@ -110,7 +110,7 @@ namespace GordonWare
             else if (string_id == 5) string_to_input = "ZDNEV";
             else if (string_id == 6) string_to_input = "JUBILER";
             else if (string_id == 7) string_to_input = "AMLBG";
-            else if (string_id == 8) string_to_input = "WEBSEVRICE";
+            else if (string_id == 8) string_to_input = "PIZZA";
             else if (string_id == 9) string_to_input = "EXTRADOC";
             else if (string_id == 10) string_to_input = "PRODOC";
             else string_to_input = "AZERTYUIOP";

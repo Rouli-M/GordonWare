@@ -21,6 +21,7 @@ namespace GordonWare
         private float tailleTexte;
         private Sprite banane, gordonAttente, gordonHeureux, gordonColere, croix, check, signLeft, signRight;
         private Vector2 offsetTexte;
+        private Song song1;
        
         private Random random;
         private SpriteFont arial;
@@ -28,7 +29,7 @@ namespace GordonWare
         public BananeGame()
         {
             name = "Banane Game";
-            description = "Aide Gordon a ranger les bons objets dans la banane PT";
+            description = "Le mot contient-il la lettre p ou t ?";
             description_color = Color.White; // Color of the description/timer, black or white is better
             author = "martial";
 
@@ -132,6 +133,8 @@ namespace GordonWare
             int mot_index = random.Next(0, allWords.Length);
             mot = allWords[mot_index]; //mot à classer
 
+            MediaPlayer.Play(song1, new TimeSpan(0, 1, 0));
+
             if (inWords.Contains(mot)) dest = Destination.Gauche; //appartient à la banane
             else dest = Destination.Droite;
 
@@ -153,6 +156,7 @@ namespace GordonWare
             gordonAttente = new Sprite(Content.Load<Texture2D>("bananegame/gordon_attente"));
             croix = new Sprite(Content.Load<Texture2D>("bananegame/red-cross"));
             check = new Sprite(Content.Load<Texture2D>("bananegame/green-check"));
+            song1 = Content.Load<Song>("music/Bach_Prelude");
 
             signLeft = new Sprite(Content.Load<Texture2D>("bananegame/sign-left"));
             signRight = new Sprite(Content.Load<Texture2D>("bananegame/sign-right"));
