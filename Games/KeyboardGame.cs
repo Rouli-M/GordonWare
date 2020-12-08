@@ -18,7 +18,7 @@ namespace GordonWare
         public KeyboardGame()
         {
             name = "Keyboard Game";
-            description = "Tape 'GORDON' au clavier !";
+            description = "Tape 'GORDON' au clavier !"; // est mis à jour dans Reset() avec le bon mot à taper
             description_color = Color.Black;
             author = "Martin";
 
