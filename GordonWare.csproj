@@ -48,11 +48,12 @@
     <Compile Include="Game1.cs" />
     <Compile Include="Games\GordonMinerGame.cs" />
     <Compile Include="Games\PizzaGame.cs" />
+    <Compile Include="Games\RecognitionGame.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="Games\DabGame.cs" />
     <Compile Include="Games\KeyboardGame.cs" />
     <Compile Include="MiniGame.cs" />
-    <Compile Include="Games\MiniGameManager.cs" />
+    <Compile Include="MiniGameManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sprite.cs" />

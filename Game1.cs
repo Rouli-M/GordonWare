@@ -62,7 +62,8 @@ namespace GordonWare
             MiniGameManager.AddMiniGame(new BananeGame());
             MiniGameManager.AddMiniGame(new GordonMinerGame());
             MiniGameManager.AddMiniGame(new ChooseServiceGame());
-            
+            MiniGameManager.AddMiniGame(new RecognitionGame());
+
             base.Initialize();
         }
 
