@@ -15,10 +15,13 @@ namespace GordonWare
 
         Sprite cursor;
         Sprite baseGordon;
-        Sprite select;
+        Sprite select, rightSelect, wrongSelect;
+
+        Song song1;
+
         Sprite[] modificationsSprites;
         List<int>[] modifiers;
-        Nullable<int> selectedGordon = null;
+        int? selectedGordon = null;
         int realGordon;
 
         Random random;
@@ -50,6 +53,9 @@ namespace GordonWare
                 if (i != realGordon)
                     modifiers[i].Add(random.Next(MODIFIERSNUMBER));
             }
+
+            MediaPlayer.Play(song1, new TimeSpan(0, 0, 2));
+
             base.Reset();
         }
 
@@ -59,10 +65,13 @@ namespace GordonWare
             background = new Sprite(Content.Load<Texture2D>("recognitiongame/background"));
             cursor = new Sprite(Content.Load<Texture2D>("recognitiongame/hand"));
             select = new Sprite(Content.Load<Texture2D>("recognitiongame/select"));
+            rightSelect = new Sprite(Content.Load<Texture2D>("recognitiongame/right"));
+            wrongSelect = new Sprite(Content.Load<Texture2D>("recognitiongame/wrong"));
             baseGordon = new Sprite(Content.Load<Texture2D>("recognitiongame/baseGordon"));
             for (int i=0; i<MODIFIERSNUMBER; i++) {
                 modificationsSprites[i] = new Sprite(Content.Load<Texture2D>("recognitiongame/modif" + i));
             }
+            song1 = Content.Load<Song>("music/Anttis instrumentals - A little tune");
         }
         public override void Update(GameTime gameTime)
         {
@@ -87,12 +96,11 @@ namespace GordonWare
             }
             else if (game_status == GameStatus.Win)
             {
-                // This is mandatory, but you can also allow the player to do something else if he won 
-                // (there's a short window of time after win before going to the transition screen)
+
             }
             else if (game_status == GameStatus.Lose)
             {
-                // You can here mock the player for losing for the same short period of time
+
             }
             base.Update(gameTime);
         }
@@ -109,8 +117,18 @@ namespace GordonWare
                     foreach (int modif in modifiers[i]) {
                         modificationsSprites[modif].TopLeftDraw(spriteBatch, position);
                     }
-                    if (selectedGordon == i) {
-                        select.TopLeftDraw(spriteBatch, position);
+                    // "select" sprites
+                    if (game_status == GameStatus.Pending) {
+                        if (selectedGordon == i)
+                            select.TopLeftDraw(spriteBatch, position);
+                    } else if (game_status == GameStatus.Win) {
+                        if (selectedGordon == i)
+                            rightSelect.TopLeftDraw(spriteBatch, position);
+                    } else if (game_status == GameStatus.Lose) {
+                        if (selectedGordon == i)
+                            wrongSelect.TopLeftDraw(spriteBatch, position);
+                        if (realGordon == i)
+                            rightSelect.TopLeftDraw(spriteBatch, position);
                     }
                 }
             }
