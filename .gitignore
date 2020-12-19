@@ -352,6 +352,7 @@ MigrationBackup/
 .ionide/
 
 bin/Windows/x86/Debug
+bin/Windows/x64/Debug
 
 Content/bin
 
