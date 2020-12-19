@@ -351,9 +351,6 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-!bin/
-
-bin/*
 bin/Windows/x86/Debug
 
 Content/bin
