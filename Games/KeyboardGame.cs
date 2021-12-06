@@ -93,7 +93,8 @@ namespace GordonWare
             background.TopLeftDraw(spriteBatch, new Vector2(0, 0));
             if (Input.AnyKeyPressed()) gordon_down.TopLeftDraw(spriteBatch, new Vector2(50, 50));
             else gordon_up.TopLeftDraw(spriteBatch, new Vector2(50, 50));
-            spriteBatch.DrawString(arial, input_string, new Vector2(700, 300), Color.Black,0f, new Vector2(0,0),2f,SpriteEffects.None, 0f);
+            if (game_status == GameStatus.Lose) spriteBatch.DrawString(arial, input_string, new Vector2(700, 300), Color.Red, 0f, new Vector2(0, 0), 2f, SpriteEffects.None, 0f);
+            else spriteBatch.DrawString(arial, input_string, new Vector2(700, 300), Color.Black,0f, new Vector2(0,0),2f,SpriteEffects.None, 0f);
             base.Draw(spriteBatch); // Par dessus chaque mini jeu est dessiné certains éléments comme la description mais aussi le timer
         }
 
@@ -107,10 +108,10 @@ namespace GordonWare
             else if (string_id == 2) string_to_input = "UNIV";
             else if (string_id == 3) string_to_input = "WEBSERVICE";
             else if (string_id == 4) string_to_input = "MADOC";
-            else if (string_id == 5) string_to_input = "ZDNEV";
-            else if (string_id == 6) string_to_input = "JUBILER";
+            else if (string_id == 5) string_to_input = "IRESTE";
+            else if (string_id == 6) string_to_input = "TONDOC";
             else if (string_id == 7) string_to_input = "AMLBG";
-            else if (string_id == 8) string_to_input = "PIZZA";
+            else if (string_id == 8) string_to_input = "CLUBDEV";
             else if (string_id == 9) string_to_input = "EXTRADOC";
             else if (string_id == 10) string_to_input = "PRODOC";
             else string_to_input = "AZERTYUIOP";
