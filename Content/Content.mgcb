@@ -3,7 +3,7 @@
 
 /outputDir:bin/$(Platform)
 /intermediateDir:obj/$(Platform)
-/platform:Windows
+/platform:DesktopGL
 /config:
 /profile:Reach
 /compress:False
@@ -25,18 +25,6 @@
 /processorParam:TextureFormat=Color
 /build:bananegame/background.png
 
-#begin bananegame/banane.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:bananegame/banane.png
-
 #begin bananegame/banane_t.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -48,6 +36,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:bananegame/banane_t.png
+
+#begin bananegame/banane.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:bananegame/banane.png
 
 #begin bananegame/gordon_attente.png
 /importer:TextureImporter
@@ -223,18 +223,6 @@
 /processorParam:TextureFormat=Color
 /build:dabgame/background.png
 
-#begin dabgame/gordon-bd.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:dabgame/gordon-bd.png
-
 #begin dabgame/gordon-bd-alt.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -247,7 +235,7 @@
 /processorParam:TextureFormat=Color
 /build:dabgame/gordon-bd-alt.png
 
-#begin dabgame/gordon-bg.png
+#begin dabgame/gordon-bd.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -257,7 +245,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:dabgame/gordon-bg.png
+/build:dabgame/gordon-bd.png
 
 #begin dabgame/gordon-bg-alt.png
 /importer:TextureImporter
@@ -271,6 +259,18 @@
 /processorParam:TextureFormat=Color
 /build:dabgame/gordon-bg-alt.png
 
+#begin dabgame/gordon-bg.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:dabgame/gordon-bg.png
+
 #begin dabgame/gordon-chocolat.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -283,12 +283,6 @@
 /processorParam:TextureFormat=Color
 /build:dabgame/gordon-chocolat.png
 
-#begin dabgame/hm.mp3
-/importer:Mp3Importer
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:dabgame/hm.mp3
-
 #begin dabgame/hm_img.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -300,6 +294,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:dabgame/hm_img.png
+
+#begin dabgame/hm.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:dabgame/hm.mp3
 
 #begin dabgame/mlg.mp3
 /importer:Mp3Importer
@@ -325,18 +325,6 @@
 /processorParam:Quality=Best
 /build:gordonminer/click.wav
 
-#begin gordonminer/gordon-bg.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:gordonminer/gordon-bg.png
-
 #begin gordonminer/gordon-bg-alt.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -348,6 +336,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:gordonminer/gordon-bg-alt.png
+
+#begin gordonminer/gordon-bg.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:gordonminer/gordon-bg.png
 
 #begin gordonminer/gordon-chocolat.png
 /importer:TextureImporter
@@ -361,18 +361,6 @@
 /processorParam:TextureFormat=Color
 /build:gordonminer/gordon-chocolat.png
 
-#begin gordonminer/gordonium.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:gordonminer/gordonium.png
-
 #begin gordonminer/gordonium_ore.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -384,6 +372,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:gordonminer/gordonium_ore.png
+
+#begin gordonminer/gordonium.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:gordonminer/gordonium.png
 
 #begin gordonminer/hand.png
 /importer:TextureImporter
@@ -567,6 +567,12 @@
 /processorParam:TextureFormat=Color
 /build:pizzagame/idle.png
 
+#begin pizzagame/jump_s.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:pizzagame/jump_s.wav
+
 #begin pizzagame/jump.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -578,12 +584,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:pizzagame/jump.png
-
-#begin pizzagame/jump_s.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:pizzagame/jump_s.wav
 
 #begin pizzagame/party.png
 /importer:TextureImporter
@@ -597,18 +597,6 @@
 /processorParam:TextureFormat=Color
 /build:pizzagame/party.png
 
-#begin pizzagame/pizza.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:pizzagame/pizza.png
-
 #begin pizzagame/pizza_dead.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -620,6 +608,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:pizzagame/pizza_dead.png
+
+#begin pizzagame/pizza.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:pizzagame/pizza.png
 
 #begin pizzagame/scene.png
 /importer:TextureImporter
@@ -887,18 +887,6 @@
 /processorParam:Quality=Best
 /build:taupegame/death.wav
 
-#begin taupegame/gordon.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:taupegame/gordon.png
-
 #begin taupegame/gordon_triste.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -910,6 +898,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:taupegame/gordon_triste.png
+
+#begin taupegame/gordon.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:taupegame/gordon.png
 
 #begin taupegame/marteau.png
 /importer:TextureImporter
@@ -935,18 +935,6 @@
 /processorParam:TextureFormat=Color
 /build:transition_screen/background.png
 
-#begin transition_screen/bande_vague.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:transition_screen/bande_vague.png
-
 #begin transition_screen/bande_vague_reverse.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -959,7 +947,7 @@
 /processorParam:TextureFormat=Color
 /build:transition_screen/bande_vague_reverse.png
 
-#begin transition_screen/life.png
+#begin transition_screen/bande_vague.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -969,7 +957,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:transition_screen/life.png
+/build:transition_screen/bande_vague.png
 
 #begin transition_screen/life_broken.png
 /importer:TextureImporter
@@ -982,6 +970,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:transition_screen/life_broken.png
+
+#begin transition_screen/life.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:transition_screen/life.png
 
 #begin white_fullscreen.png
 /importer:TextureImporter
