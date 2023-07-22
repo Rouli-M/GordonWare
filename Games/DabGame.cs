@@ -115,8 +115,8 @@ namespace GordonWare
             }
             Texture2D brasD = RightDab ? gordon_bd : gordon_bd_alt;
             Texture2D brasG = RightDab ? gordon_bg : gordon_bg_alt;
-            spriteBatch.Draw(brasD, gordonbd_pos, null, null, centre_rotation_bd, (float)rotation_bd, new Vector2(3.0f));
-            spriteBatch.Draw(brasG, gordonbg_pos, null, null, centre_rotation_bg, (float)rotation_bg, new Vector2(3.0f));
+            spriteBatch.Draw(brasD, gordonbd_pos, null, Color.Red, (float)rotation_bd, centre_rotation_bd, new Vector2(3.0f), SpriteEffects.None, 1f);
+            spriteBatch.Draw(brasG, gordonbg_pos, null, Color.Red, (float)rotation_bg, centre_rotation_bg, new Vector2(3.0f), SpriteEffects.None, 1f);
 
             base.Draw(spriteBatch); // Par dessus chaque mini jeu est dessiné certains éléments comme la description mais aussi le timer
 
